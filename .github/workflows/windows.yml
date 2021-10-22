@@ -72,6 +72,12 @@ jobs:
       shell: cmd
       run: |
         7z a -tzip -r -bb1 wxFormBuilder-Windows-build.zip _build
+    - name: Check working copy
+      shell: msys2 {0}
+      run: |
+        git status --porcelain --ignore-submodules=none -unormal
+        find .
+        false
     - name: Build
       shell: msys2 {0}
       run: |
