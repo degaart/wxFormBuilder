@@ -76,7 +76,7 @@ jobs:
       shell: msys2 {0}
       run: |
         git status --porcelain --ignore-submodules=none -unormal
-        find .
+        git diff
         false
     - name: Build
       shell: msys2 {0}
