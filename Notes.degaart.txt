@@ -1,0 +1,3 @@
+- Before installing:
+    install_name_tool -add_rpath /Volumes/Projects/wxFormBuilder/lib Build/stage/wxFormBuilder.app/Contents/MacOS/wxFormBuilder
+
