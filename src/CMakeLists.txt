@@ -225,7 +225,6 @@ endif()
 
 target_compile_definitions(wxFormBuilder_app
   PRIVATE
-    BOOST_DLL_USE_STD_FS
     WXFB_PLUGINS_RESOLVE
     WXFB_VERSION_GENERATE
     $<$<CONFIG:DEBUG>:__WXFB_DEBUG__>
@@ -241,6 +240,7 @@ target_link_libraries(wxFormBuilder_app
     ticpp::ticpp
     ${wxWidgets_LIBRARIES}
     Boost::headers
+    Boost::filesystem
 )
 if(WIN32)
   if(MINGW)

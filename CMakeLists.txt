@@ -122,7 +122,7 @@ else()
   unset(BUILD_SHARED_LIBS)
 endif()
 # TODO: Some Boost packages do not include the CMake config files so config mode with the headers component can't be used
-find_package(Boost 1.71.0 REQUIRED)
+find_package(Boost 1.71.0 REQUIRED COMPONENTS filesystem)
 
 # Adjust paths to match wxStandardPaths implementation
 include(GNUInstallDirs)
@@ -172,6 +172,7 @@ if(APPLE)
     CODE
     "
       include(BundleUtilities)
+      set(BU_CHMOD_BUNDLE_ITEMS TRUE)
       file(GLOB moduleDependencies LIST_DIRECTORIES false \"\${CMAKE_INSTALL_PREFIX}/wxFormBuilder.app/Contents/PlugIns/*${CMAKE_SHARED_MODULE_SUFFIX}\")
       fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/wxFormBuilder.app\" \"\${moduleDependencies}\" \"\")
 
